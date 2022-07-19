@@ -5,26 +5,47 @@ class NieuwsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Card(
+      margin: EdgeInsets.zero,
       color: Colors.black,
+      shape: const RoundedRectangleBorder(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Image.asset('assets/images/nieuws.jpeg'),
+          Expanded(
+            child: Container(
+              foregroundDecoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: const Alignment(0.0, 0.8),
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.black.withOpacity(0),
+                        Colors.black,
+                      ])),
+              child: Image.asset(
+                'assets/images/nieuws.jpeg',
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
           Container(
-              margin: EdgeInsets.only(left: 4, bottom: 8),
-              alignment: Alignment.topLeft,
-              child: Text('Dost over stoppen, FC Utrecht en zijn productie: "Minimaal vijftien keer"',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),)),
+            padding: const EdgeInsets.all(8),
+            child: const Text(
+              'Dost over stoppen, FC Utrecht en zijn productie: "Minimaal vijftien keer"',
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           Container(
-              margin: EdgeInsets.only(left: 4, bottom: 8),
-              color: Colors.black,
-              alignment: Alignment.topLeft,
-              child: Text('In gesprek met Bas Dost over verborgen agendas, de innerlijke goalgetter en torenhoge verwachtingen. "Ja ik heb met de gedachte gespeeld te stoppen"'
-                  , style: TextStyle(color: Colors.grey, fontSize: 12))),
+              padding: const EdgeInsets.only(bottom: 8, left: 8, right: 8),
+              child: const Text(
+                  'In gesprek met Bas Dost over verborgen agendas, de innerlijke goalgetter en torenhoge verwachtingen. "Ja ik heb met de gedachte gespeeld te stoppen"',
+                  style: TextStyle(color: Colors.grey, fontSize: 12))),
         ],
       ),
     );
-    return Container(child: Text('Dit is een widget'));
   }
 }

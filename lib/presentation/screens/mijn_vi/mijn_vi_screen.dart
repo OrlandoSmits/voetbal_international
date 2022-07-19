@@ -10,6 +10,6 @@ class MijnVIScreen extends StatefulWidget {
 class _MijnVIScreenState extends State<MijnVIScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Text('Hoi Max');
   }
 }

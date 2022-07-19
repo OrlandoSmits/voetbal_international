@@ -14,7 +14,6 @@ class _ProTabState extends State<ProTab> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Here, default theme colors are used for activeBgColor, activeFgColor, inactiveBgColor and inactiveFgColor
         Container(
           margin: const EdgeInsets.only(top: 8, bottom: 8),
           child: ToggleSwitch(
@@ -27,22 +26,25 @@ class _ProTabState extends State<ProTab> {
             activeBorders: [
               Border.all(width: 2, color: const Color(0xff009EE0))
             ],
-            borderColor: [Colors.grey],
+            borderColor: const [Colors.grey],
             borderWidth: 0.5,
-            labels: ['Alle verhalen', 'Mijn interesses'],
+            labels: const ['Alle verhalen', 'Mijn interesses'],
             onToggle: (index) {
               print('switched to: $index');
             },
           ),
         ),
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 1,
-            children: List.generate(100, (index) {
-              return NieuwsWidget();
-            }),
-          ),
-        )
+          child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: 4,
+              itemBuilder: (ctx, i) {
+                return NieuwsWidget();
+              },
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+              )),
+        ),
       ],
     );
     return const Text('this is the pro tab');

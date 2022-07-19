@@ -10,6 +10,6 @@ class LaatsteTab extends StatefulWidget {
 class _LaatsteTabState extends State<LaatsteTab> {
   @override
   Widget build(BuildContext context) {
-    return Text('laatste');
+    return Text("laatste");
   }
 }
