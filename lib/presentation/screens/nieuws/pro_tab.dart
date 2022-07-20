@@ -39,7 +39,11 @@ class _ProTabState extends State<ProTab> {
               shrinkWrap: true,
               itemCount: 4,
               itemBuilder: (ctx, i) {
-                return NieuwsWidget();
+                if(i.isEven) {
+                  return NieuwsWidget(widgetType: 'black');
+                } else {
+                  return NieuwsWidget(widgetType: 'white');
+                }
               },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
