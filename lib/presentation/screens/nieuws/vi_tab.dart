@@ -17,17 +17,18 @@ class _VITabState extends State<VITab> {
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1),
         itemBuilder: (ctx, i) {
-          if (i == 0) {
-            return NieuwsWidget(widgetType: 'black');
-          } else if (i == 1) {
-            return NieuwsWidget(widgetType: 'white');
-          } else if (i == 2) {
-            return NieuwsWidget(widgetType: 'klein');
-          } else if (i == 3) {
-            return NieuwsWidget(widgetType: 'tijdlijn');
-          }else {
-            return NieuwsWidget(widgetType: 'klein_reclame');
-          }
+          return FlutterLogo();
+          // if (i == 0) {
+          //   return NieuwsWidget(newsItem: 'black');
+          // } else if (i == 1) {
+          //   return NieuwsWidget(newsItem: 'white');
+          // } else if (i == 2) {
+          //   return NieuwsWidget(newsItem: 'klein');
+          // } else if (i == 3) {
+          //   return NieuwsWidget(newsItem: 'tijdlijn');
+          // }else {
+          //   return NieuwsWidget(newsItem: 'klein_reclame');
+          // }
         });
   }
 }

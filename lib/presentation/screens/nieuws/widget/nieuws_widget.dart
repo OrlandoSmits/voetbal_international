@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voetbal_international/models/news_item.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_widget_klein.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_widget_reclame_klein.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_widget_tijdlijn.dart';
@@ -6,22 +7,23 @@ import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_
 import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_widget_zwart.dart';
 
 class NieuwsWidget extends StatelessWidget {
-  final String widgetType;
+  final NewsItem newsItem;
 
-  const NieuwsWidget({Key? key, required this.widgetType}) : super(key: key);
+  const NieuwsWidget({Key? key, required this.newsItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (widgetType == 'black') {
-      return const NieuwsWidgetZwart();
-    } else if (widgetType == 'white') {
-      return const NieuwsWidgetWit();
-    } else if (widgetType == 'klein') {
-      return const NieuwsWidgetKlein();
-    } else if (widgetType == 'tijdlijn') {
-      return const NieuwsWidgetTijdlijn();
-    } else {
-      return const NieuwsWidgetReclameKlein();
-    }
+    return NieuwsWidgetZwart(newsItem: newsItem);
+    // if (newsItem == 'black') {
+    //   return const NieuwsWidgetZwart();
+    // } else if (newsItem == 'white') {
+    //   return const NieuwsWidgetWit();
+    // } else if (newsItem == 'klein') {
+    //   return const NieuwsWidgetKlein();
+    // } else if (newsItem == 'tijdlijn') {
+    //   return const NieuwsWidgetTijdlijn();
+    // } else {
+    //   return const NieuwsWidgetReclameKlein();
+    // }
   }
 }

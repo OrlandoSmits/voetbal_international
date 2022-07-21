@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:voetbal_international/models/news_item.dart';
 
 class NieuwsWidgetZwart extends StatelessWidget {
-  const NieuwsWidgetZwart({Key? key}) : super(key: key);
+  final NewsItem newsItem;
+
+  const NieuwsWidgetZwart({Key? key, required this.newsItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +22,20 @@ class NieuwsWidgetZwart extends StatelessWidget {
                       begin: const Alignment(0.0, 0.8),
                       end: Alignment.bottomCenter,
                       colors: [
-                        Colors.black.withOpacity(0),
-                        Colors.black,
-                      ])),
-              child: Image.asset(
-                'assets/images/nieuws.jpeg',
+                    Colors.black.withOpacity(0),
+                    Colors.black,
+                  ])),
+              child: Image.network(
+                newsItem.image,
                 fit: BoxFit.fill,
               ),
             ),
           ),
           Container(
             padding: const EdgeInsets.all(8),
-            child: const Text(
-              'Dost over stoppen, FC Utrecht en zijn productie: "Minimaal vijftien keer"',
-              style: TextStyle(
+            child: Text(
+              newsItem.title,
+              style: const TextStyle(
                 fontSize: 18,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -41,9 +44,8 @@ class NieuwsWidgetZwart extends StatelessWidget {
           ),
           Container(
               padding: const EdgeInsets.only(bottom: 16, left: 8, right: 8),
-              child: const Text(
-                  'In gesprek met Bas Dost over verborgen agendas, de innerlijke goalgetter en torenhoge verwachtingen. "Ja ik heb met de gedachte gespeeld te stoppen"',
-                  style: TextStyle(color: Colors.grey, fontSize: 12))),
+              child: Text(newsItem.subTitle,
+                  style: const TextStyle(color: Colors.grey, fontSize: 12))),
         ],
       ),
     );

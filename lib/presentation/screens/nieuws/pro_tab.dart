@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:voetbal_international/logic/fetch_pro_news_cubit.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_widget.dart';
 
 class ProTab extends StatefulWidget {
@@ -30,25 +32,29 @@ class _ProTabState extends State<ProTab> {
             borderWidth: 0.5,
             labels: const ['Alle verhalen', 'Mijn interesses'],
             onToggle: (index) {
-              print('switched to: $index');
+              BlocProvider.of<FetchProNewsCubit>(context).fetch();
             },
           ),
         ),
-        Expanded(
-          child: GridView.builder(
-              shrinkWrap: true,
-              itemCount: 4,
-              itemBuilder: (ctx, i) {
-                if(i.isEven) {
-                  return NieuwsWidget(widgetType: 'black');
-                } else {
-                  return NieuwsWidget(widgetType: 'white');
-                }
-              },
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-              )),
-        ),
+        BlocBuilder<FetchProNewsCubit, FetchProNewsState>(
+            builder: (context, state) {
+          if (state.status == FetchProNewsStatus.success) {
+            var news = state.news;
+            return Expanded(
+              child: GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: news.newsItems.length,
+                  itemBuilder: (_, i) {
+                      return NieuwsWidget(newsItem: news.newsItems[i]);
+                  },
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1,
+                  )),
+            );
+          } else {
+            return FlutterLogo();
+          }
+        })
       ],
     );
     return const Text('this is the pro tab');

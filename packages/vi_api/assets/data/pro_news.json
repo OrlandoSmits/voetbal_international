@@ -1,0 +1,25 @@
+{
+  "news": [
+    {
+      "title": "Kieswijzer: wat is de beste vervolgestap voor Memphis Depay?",
+      "subTitle": "Een korte analyse van de negen bestemmingen die het meest logisch lijken voor de aanvalsleider van Oranje.",
+      "content": "1",
+      "myInterest": true,
+      "image": "https://www.vi.nl/.imaging/mte/vinl-website-theme/760x506/dam/articles/2022/07/20/memphishb.jpg/jcr:content/memphishb.jpg"
+    },
+    {
+      "title": "'AZ kan de topdrie van Nederland opnieuw gaan aanvallen'",
+      "subTitle": "In gesprek met Jens Odgaard, die bij AZ stabiliteit en progressie in zijn carriere wil aanbrengen.",
+      "myInterest": true,
+      "content": "1",
+      "image": "https://www.vi.nl/.imaging/mte/vinl-website-theme/760x506/dam/articles/2022/07/19/copyright-proshots-17448896.jpeg/jcr:content/copyright-proshots-17448896.jpeg"
+    },
+    {
+      "title": "'Aan alles voel je dat Frenkie de Jong de Engelse competitie helemaal ruk vindt.'",
+      "subTitle": "Nico Dijkshoorn schrijft in zijn column over de rust waarmee Frenkie de Jong beslist wat goed is voor hem en zijn vriendin.",
+      "myInterest": false,
+      "content": "1",
+      "image": "https://www.vi.nl/.imaging/mte/vinl-website-theme/760x506/dam/articles/2022/04/12/pr-dijkhoorncolumn3.jpg/jcr:content/pr-dijkhoorncolumn3.jpg"
+    }
+  ]
+}
