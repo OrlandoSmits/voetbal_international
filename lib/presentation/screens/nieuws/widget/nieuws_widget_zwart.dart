@@ -27,7 +27,7 @@ class NieuwsWidgetZwart extends StatelessWidget {
                   ])),
               child: Image.network(
                 newsItem.image,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
               ),
             ),
           ),

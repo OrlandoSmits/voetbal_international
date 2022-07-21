@@ -13,7 +13,7 @@ class News {
     return News(
         newsItems: news.news
             .map((n) => NewsItem(
-                title: n.title, subTitle: n.subTitle, image: n.image))
+                title: n.title, subTitle: n.subTitle, image: n.image, myInterest: n.myInterest))
             .toList());
   }
 }

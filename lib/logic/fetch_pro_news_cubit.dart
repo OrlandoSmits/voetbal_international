@@ -19,4 +19,15 @@ class FetchProNewsCubit extends Cubit<FetchProNewsState> {
       emit(state.copyWith(status: FetchProNewsStatus.failure));
     }
   }
+
+  Future<void> fetchMyInterestsNews() async {
+    try {
+      final filteredNewsItems = News.fromRepository(await _viRepository.fetchProNews())
+          .newsItems.where((item) => item.myInterest == true).toList();
+
+      emit(state.copyWith(status: FetchProNewsStatus.success, news: News(newsItems: filteredNewsItems)));
+    } on Exception {
+      emit(state.copyWith(status: FetchProNewsStatus.failure));
+    }
+  }
 }

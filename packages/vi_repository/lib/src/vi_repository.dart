@@ -14,7 +14,8 @@ class VIRepository {
         .map((newsItem) => NewsItem(
             title: newsItem.title,
             subTitle: newsItem.subTitle,
-            image: newsItem.image))
+            image: newsItem.image,
+            myInterest: newsItem.myInterest))
         .toList();
 
     return News(news: repositoryNews);

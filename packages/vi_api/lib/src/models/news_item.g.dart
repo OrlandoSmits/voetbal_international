@@ -16,6 +16,7 @@ NewsItem _$NewsItemFromJson(Map<String, dynamic> json) => $checkedCreate(
           title: $checkedConvert('title', (v) => v as String),
           subTitle: $checkedConvert('subTitle', (v) => v as String),
           image: $checkedConvert('image', (v) => v as String),
+          myInterest: $checkedConvert('myInterest', (v) => v as bool),
         );
         return val;
       },
@@ -25,4 +26,5 @@ Map<String, dynamic> _$NewsItemToJson(NewsItem instance) => <String, dynamic>{
       'title': instance.title,
       'subTitle': instance.subTitle,
       'image': instance.image,
+      'myInterest': instance.myInterest,
     };

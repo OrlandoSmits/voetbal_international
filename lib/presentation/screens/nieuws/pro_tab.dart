@@ -32,7 +32,12 @@ class _ProTabState extends State<ProTab> {
             borderWidth: 0.5,
             labels: const ['Alle verhalen', 'Mijn interesses'],
             onToggle: (index) {
-              BlocProvider.of<FetchProNewsCubit>(context).fetch();
+              if (index == 0) {
+                BlocProvider.of<FetchProNewsCubit>(context).fetch();
+              } else {
+                BlocProvider.of<FetchProNewsCubit>(context)
+                    .fetchMyInterestsNews();
+              }
             },
           ),
         ),
@@ -45,7 +50,7 @@ class _ProTabState extends State<ProTab> {
                   shrinkWrap: true,
                   itemCount: news.newsItems.length,
                   itemBuilder: (_, i) {
-                      return NieuwsWidget(newsItem: news.newsItems[i]);
+                    return NieuwsWidget(newsItem: news.newsItems[i]);
                   },
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
@@ -58,5 +63,11 @@ class _ProTabState extends State<ProTab> {
       ],
     );
     return const Text('this is the pro tab');
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<FetchProNewsCubit>(context).fetch();
   }
 }
