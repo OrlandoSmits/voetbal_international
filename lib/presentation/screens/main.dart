@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vi_repository/vi_repository.dart';
+import 'package:voetbal_international/logic/fetch_article_cubit.dart';
 import 'package:voetbal_international/logic/fetch_pro_news_cubit.dart';
 import 'package:voetbal_international/presentation/router/app_router.dart';
 
@@ -28,6 +29,9 @@ class VoetbalInternationalApp extends StatelessWidget {
         providers: [
           BlocProvider<FetchProNewsCubit>(
             create: (_) => FetchProNewsCubit(viRepository),
+          ),
+          BlocProvider<FetchArticleCubit>(
+            create: (_) => FetchArticleCubit(viRepository),
           )
         ],
         child: MaterialApp(

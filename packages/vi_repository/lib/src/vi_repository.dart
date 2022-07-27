@@ -1,4 +1,4 @@
-import 'package:vi_api/vi_api.dart' hide NewsItem;
+import 'package:vi_api/vi_api.dart' hide NewsItem, Article;
 
 import 'models/models.dart';
 
@@ -12,6 +12,7 @@ class VIRepository {
     var proNewsResponse = await _viApiClient.fetchProNews();
     var repositoryNews = proNewsResponse.news
         .map((newsItem) => NewsItem(
+            id: newsItem.id,
             title: newsItem.title,
             subTitle: newsItem.subTitle,
             image: newsItem.image,
@@ -19,5 +20,10 @@ class VIRepository {
         .toList();
 
     return News(news: repositoryNews);
+  }
+
+  Future<Article> fetchArticle(int articleId) async {
+    var articleResponse = await _viApiClient.fetchArticle(articleId);
+    return Article.fromResponse(articleResponse);
   }
 }

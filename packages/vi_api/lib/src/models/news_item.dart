@@ -4,6 +4,9 @@ part 'news_item.g.dart';
 
 @JsonSerializable()
 class NewsItem {
+  @JsonValue("id")
+  final int id;
+
   @JsonValue('title')
   final String title;
 
@@ -17,6 +20,7 @@ class NewsItem {
   final bool myInterest;
 
   NewsItem({
+    required this.id,
     required this.title,
     required this.subTitle,
     required this.image,

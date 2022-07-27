@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:voetbal_international/logic/fetch_pro_news_cubit.dart';
+import 'package:voetbal_international/presentation/router/arguments/ArticleArguments.dart';
+import 'package:voetbal_international/presentation/screens/articles/article_screen.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/widget/nieuws_widget.dart';
 
 class ProTab extends StatefulWidget {
@@ -42,19 +44,29 @@ class _ProTabState extends State<ProTab> {
           ),
         ),
         BlocBuilder<FetchProNewsCubit, FetchProNewsState>(
-            builder: (context, state) {
+            builder: (ctx, state) {
           if (state.status == FetchProNewsStatus.success) {
             var news = state.news;
-            return Expanded(
-              child: GridView.builder(
-                  shrinkWrap: true,
-                  itemCount: news.newsItems.length,
-                  itemBuilder: (_, i) {
-                    return NieuwsWidget(newsItem: news.newsItems[i]);
-                  },
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
-                  )),
+            return Container(
+              child: Expanded(
+                child: GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: news.newsItems.length,
+                    itemBuilder: (_, i) {
+                      var newsItem = news.newsItems[i];
+                      return InkResponse(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, ArticleScreen.routeName,
+                                arguments: ArticleArguments(newsItem.id));
+                          },
+                          child: NieuwsWidget(newsItem: newsItem));
+                    },
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                    )),
+              ),
             );
           } else {
             return FlutterLogo();
@@ -62,7 +74,6 @@ class _ProTabState extends State<ProTab> {
         })
       ],
     );
-    return const Text('this is the pro tab');
   }
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voetbal_international/presentation/screens/competities/competities_screen.dart';
+import 'package:voetbal_international/presentation/screens/competitions/competitions_screen.dart';
 import 'package:voetbal_international/presentation/screens/meer/meer_screen.dart';
 import 'package:voetbal_international/presentation/screens/mijn_vi/mijn_vi_screen.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/nieuws_screen.dart';
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const NieuwsScreen(),
     const WedstrijdenScreen(),
     const MijnVIScreen(),
-    const CompetitiesScreen(),
+    const CompetitionsScreen(),
     const MeerScreen(),
   ];
 

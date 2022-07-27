@@ -26,6 +26,9 @@ dev_dependencies:
 flutter:
   assets:
     - assets/data/pro_news.json
+    - assets/data/article1.json
+    - assets/data/article2.json
+    - assets/data/article3.json
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
