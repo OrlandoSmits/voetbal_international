@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/laatste_tab.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/pro_tab.dart';
 import 'package:voetbal_international/presentation/screens/nieuws/vi_tab.dart';
+import 'package:voetbal_international/widgets/icon/pro_icon_widget.dart';
 
 class NieuwsScreen extends StatefulWidget {
   const NieuwsScreen({Key? key}) : super(key: key);
@@ -30,22 +31,8 @@ class _NieuwsScreenState extends State<NieuwsScreen> {
             indicatorWeight: 3.0,
             indicatorColor: const Color(0xff009EE0),
             tabs: [
-              Tab(
-                icon: Container(
-                  padding: const EdgeInsets.all(2.0),
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 2),
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(10.0),
-                      )),
-                  child: const Text(
-                    'PRO',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12.0),
-                  ),
-                ),
+              const Tab(
+                icon: ProIconWidget(),
               ),
               Tab(
                   icon: Row(

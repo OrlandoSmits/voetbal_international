@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voetbal_international/logic/fetch_article_cubit.dart';
 import 'package:voetbal_international/presentation/router/arguments/ArticleArguments.dart';
+import 'package:voetbal_international/widgets/icon/pro_icon_widget.dart';
+import 'package:voetbal_international/widgets/text/title_widget.dart';
 
 class ArticleScreen extends StatelessWidget {
   static const routeName = "/article";
@@ -54,30 +56,8 @@ class ArticleScreen extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              Container(
-                                padding: const EdgeInsets.all(2.0),
-                                decoration: BoxDecoration(
-                                    border: Border.all(width: 2),
-                                    color: Colors.black,
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(10.0),
-                                    )),
-                                child: const Text(
-                                  'PRO',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12.0),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  article.title,
-                                  style: const TextStyle(
-                                      color: Colors.white, fontSize: 22.0),
-                                ),
-                              ),
+                              const ProIconWidget(),
+                              TitleWidget(title: article.title),
                               Container(
                                 padding:
                                     const EdgeInsets.only(left: 16.0, top: 8.0),
@@ -207,7 +187,7 @@ class ArticleScreen extends StatelessWidget {
                             "Door ",
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          Text(article.author.name),
+                          Text(article.author.name, style: const TextStyle(decoration: TextDecoration.underline),),
                           Container(
                             margin: const EdgeInsets.only(left: 4),
                             child: CircleAvatar(

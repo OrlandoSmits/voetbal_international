@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voetbal_international/models/news_item.dart';
+import 'package:voetbal_international/widgets/text/title_widget.dart';
 
 class NieuwsWidgetZwart extends StatelessWidget {
   final NewsItem newsItem;
@@ -31,17 +32,7 @@ class NieuwsWidgetZwart extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            child: Text(
-              newsItem.title,
-              style: const TextStyle(
-                fontSize: 18,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
+          TitleWidget(title: newsItem.title),
           Container(
               padding: const EdgeInsets.only(bottom: 16, left: 8, right: 8),
               child: Text(newsItem.subTitle,
