@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voetbal_international/logic/fetch_article_cubit.dart';
+import 'package:voetbal_international/models/models.dart';
 import 'package:voetbal_international/presentation/router/arguments/ArticleArguments.dart';
+import 'package:voetbal_international/widgets/articles/article_image.dart';
 import 'package:voetbal_international/widgets/articles/author_row.dart';
 import 'package:voetbal_international/widgets/icons/bookmark_icon.dart';
 import 'package:voetbal_international/widgets/icons/comments_icon.dart';
 import 'package:voetbal_international/widgets/icons/pro_icon.dart';
 import 'package:voetbal_international/widgets/icons/social_media_icon.dart';
+import 'package:voetbal_international/widgets/text/alinea_text.dart';
+import 'package:voetbal_international/widgets/text/first_aline_text.dart';
+import 'package:voetbal_international/widgets/text/header_text.dart';
 import 'package:voetbal_international/widgets/text/title_text.dart';
 
 class ArticleScreen extends StatelessWidget {
@@ -54,9 +59,7 @@ class ArticleScreen extends StatelessWidget {
                                 height: 200,
                                 width: MediaQuery.of(context).size.width,
                                 color: Colors.black,
-                                child: Column(
-                                  children: const [],
-                                )),
+                                ),
                           ),
                           Column(
                             children: [
@@ -119,7 +122,24 @@ class ArticleScreen extends StatelessWidget {
                     AuthorRow(
                       author: article.author,
                     ),
-                    const Text('Heel veel text hier straks'),
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: article.content.contents.length,
+                    itemBuilder: (ctx, i) {
+                      var content = article.content.contents[i];
+
+                      if(content.articleType.isIntro) {
+                        return FirstAlineaText(text: content.articleContent);
+                      } else if(content.articleType.isHeader) {
+                        return HeaderText(text: content.articleContent);
+                      } else if(content.articleType.isAlinea) {
+                        return AlineaText(text: content.articleContent);
+                      } else if(content.articleType.isImage) {
+                        return ArticleImage(articleContent: content);
+                      }
+                      return Text(content.articleType.name);
+                    }),
                   ],
                 ),
               ),

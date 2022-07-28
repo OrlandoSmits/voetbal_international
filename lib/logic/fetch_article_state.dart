@@ -26,7 +26,8 @@ class FetchArticleState extends Equatable {
     time: "",
     amountOfComments: 0,
     title: "",
-    author: Author(name: "", image: "")
+    author: Author(name: "", image: ""),
+    content: Content(contents: List.empty())
   );
 
   FetchArticleState copyWith({

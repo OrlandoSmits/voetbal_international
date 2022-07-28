@@ -4,6 +4,7 @@ import 'package:vi_repository/vi_repository.dart' show VIRepository;
 
 import '../models/article.dart';
 import '../models/author.dart';
+import '../models/content.dart';
 
 part 'fetch_article_state.dart';
 

@@ -8,5 +8,46 @@
   "author": {
     "name": "Sam Planting",
     "image": "https://www.vi.nl/.imaging/mte/vinl-website-theme/96/authors/sam-planting/photo/sam3.jpg"
+  },
+  "content": {
+    "contents": [
+      {
+        "articleType": "intro",
+        "articleContent": "Door de komst van prijzige zomeraankopen Robert Lewandowski en Raphinha, en de aanwezigheid van Ansu Fati, Ferran Torres en Ousmane Dembélé is het akelig druk in de voorhoede van Barcelona geworden. Het is dus maar de vraag of Memphis Depay er goed aan doet om in Camp Nou te blijven. Maar wat zijn de alternatieven voor de aanvalsleider van Oranje? VI PRO zet negen opties op rij, van clubs waaraan Memphis wordt gelinkt tot ploegen die nog wel een productieve aanvaller kunnen gebruiken."
+      },
+      {
+        "articleType": "header",
+        "articleContent": "Tottenham Hotspur"
+      },
+      {
+        "articleType": "firstAlinea",
+        "articleContent": "De Noord-Londenaren zijn de nieuwste club die in verband wordt gebracht met de Nederlandse aanvaller. In het 3-4-2-1-systeem dat manager Antonio Conte er het afgelopen halfjaar succesvol heeft ingeslepen bij Tottenham, zou Memphis in theorie op zowel de spitspositie als de twee '10'-posities kunnen spelen. "
+      },
+      {
+        "articleType": "image",
+        "articleContent": "https://www.vi.nl/dam/jcr:d4ddb09c-cc8b-4a92-92c0-661e1faa5cb4/thselectie.jpg",
+        "imageDescription": "Selectie van Tottenham Hotspur voor 2022/23."
+      },
+      {
+        "articleType": "alinea",
+        "articleContent": "Toch lijkt een overstap naar Spurs niet ideaal voor Memphis. Met Richarlison trok Tottenham een prijzige en bewezen aanvaller aan die minuten zal krijgen op elk van de drie aanvallende posities bij Conte. Daarnaast zijn Harry Kane en Heung-min Son natuurlijk van een basisplaats verzekerd zolang zij fit zijn, en bleek de bij Juventus nog wisselvallige Dejan Kulusevski in de Premier League een revelatie"
+      },
+      {
+        "articleType": "header",
+        "articleContent": "Olympique Marseille"
+      },
+      {
+        "articleType": "alinea",
+        "articleContent": "Een verrassender club die in de Franse pers aan Memphis wordt gelinkt, is Olympique Marseille. Succestrainer Jorge Sampaoli stapte deze zomer al op vanwege het uitblijven van de door hem gewenste versterkingen, en sindsdien is de schreeuw om nieuwe topaankopen alsmaar groter geworden in de Zuid-Franse stad. De immer fanatieke fans willen koste wat het kost dat Marseille ditmaal competitiever is in de Champions League dan twee seizoenen geleden, toen het als laatste eindigde in de groepsfase."
+      },
+      {
+        "articleType": "image",
+        "articleContent": "https://www.vi.nl/dam/jcr:6a6b8a58-1feb-4412-8364-a0e8b04948d5/memphismarseille.jpg"
+      },
+      {
+        "articleType": "alinea",
+        "articleContent": "Als Marseille dezelfde structuur in balbezit blijft gebruiken die het onder leiding van Sampaoli hanteerde, liggen er op de Côte d'Azur kansen om een sensationele versie van Memphis te kunnen zien. De 3-2-4-1 van Sampaoli, waarbij Dimitri Payet als 'valse spits' de vrijheid had om dikwijls vier tegenstanders aan zich te binden met uitzakkende loopacties, biedt precies het soort vrijheid waarbij Memphis in Oranje zo gedijt. Het is alleen de vraag of Memphis in Frankrijk zou willen terugkeren bij een directe concurrent van oud-werkgever Lyon."
+      }
+    ]
   }
 }

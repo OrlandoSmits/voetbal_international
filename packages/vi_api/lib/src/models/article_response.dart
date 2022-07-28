@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:vi_api/vi_api.dart';
 
 import 'author.dart';
 
@@ -27,6 +28,9 @@ class ArticleResponse {
   @JsonValue('author')
   final Author author;
 
+  @JsonValue('content')
+  final Content content;
+
   const ArticleResponse({
     required this.id,
     required this.image,
@@ -35,6 +39,7 @@ class ArticleResponse {
     required this.amountOfComments,
     required this.title,
     required this.author,
+    required this.content,
   });
 
   factory ArticleResponse.fromJson(Map<String, dynamic> json) =>

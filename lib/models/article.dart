@@ -9,6 +9,7 @@ class Article {
   final int amountOfComments;
   final String title;
   final Author author;
+  final Content content;
 
   Article({
     required this.id,
@@ -18,6 +19,7 @@ class Article {
     required this.amountOfComments,
     required this.title,
     required this.author,
+    required this.content,
   });
 
   factory Article.fromRepository(vi_repository.Article article) {
@@ -28,6 +30,7 @@ class Article {
         time: article.time,
         amountOfComments: article.amountOfComments,
         title: article.title,
-        author: Author.fromRepository(article.author));
+        author: Author.fromRepository(article.author),
+        content: Content.fromRepository(article.content));
   }
 }

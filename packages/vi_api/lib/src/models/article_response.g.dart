@@ -23,6 +23,8 @@ ArticleResponse _$ArticleResponseFromJson(Map<String, dynamic> json) =>
           title: $checkedConvert('title', (v) => v as String),
           author: $checkedConvert(
               'author', (v) => Author.fromJson(v as Map<String, dynamic>)),
+          content: $checkedConvert(
+              'content', (v) => Content.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -37,4 +39,5 @@ Map<String, dynamic> _$ArticleResponseToJson(ArticleResponse instance) =>
       'amountOfComments': instance.amountOfComments,
       'title': instance.title,
       'author': instance.author,
+      'content': instance.content,
     };

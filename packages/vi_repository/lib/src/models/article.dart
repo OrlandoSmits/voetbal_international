@@ -1,6 +1,7 @@
-import 'package:vi_api/vi_api.dart';
+import 'package:vi_api/vi_api.dart' hide Content;
 
 import 'author.dart';
+import 'content.dart';
 
 class Article {
   final int id;
@@ -10,6 +11,7 @@ class Article {
   final int amountOfComments;
   final String title;
   final Author author;
+  final Content content;
 
   Article({
     required this.id,
@@ -19,6 +21,7 @@ class Article {
     required this.amountOfComments,
     required this.title,
     required this.author,
+    required this.content,
   });
 
   factory Article.fromResponse(ArticleResponse articleResponse) {
@@ -29,7 +32,8 @@ class Article {
         time: articleResponse.time,
         amountOfComments: articleResponse.amountOfComments,
         title: articleResponse.title,
-        author: Author.fromResponse(articleResponse)
+        author: Author.fromResponse(articleResponse),
+        content: Content.fromResponse(articleResponse)
     );
   }
 }
