@@ -35,6 +35,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   vi_repository:
     path: packages/vi_repository
+  font_awesome_flutter: ^10.1.0
 
 
 

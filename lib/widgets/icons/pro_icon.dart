@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ProIconWidget extends StatelessWidget {
-  const ProIconWidget({Key? key}) : super(key: key);
+class ProIcon extends StatelessWidget {
+  const ProIcon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:voetbal_international/logic/fetch_article_cubit.dart';
 import 'package:voetbal_international/presentation/router/arguments/ArticleArguments.dart';
-import 'package:voetbal_international/widgets/icon/pro_icon_widget.dart';
-import 'package:voetbal_international/widgets/text/title_widget.dart';
+import 'package:voetbal_international/widgets/articles/author_row.dart';
+import 'package:voetbal_international/widgets/icons/bookmark_icon.dart';
+import 'package:voetbal_international/widgets/icons/comments_icon.dart';
+import 'package:voetbal_international/widgets/icons/pro_icon.dart';
+import 'package:voetbal_international/widgets/icons/social_media_icon.dart';
+import 'package:voetbal_international/widgets/text/title_text.dart';
 
 class ArticleScreen extends StatelessWidget {
   static const routeName = "/article";
@@ -56,8 +60,8 @@ class ArticleScreen extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              const ProIconWidget(),
-                              TitleWidget(title: article.title),
+                              const ProIcon(),
+                              TitleText(title: article.title),
                               Container(
                                 padding:
                                     const EdgeInsets.only(left: 16.0, top: 8.0),
@@ -76,26 +80,9 @@ class ArticleScreen extends StatelessWidget {
                                           const TextStyle(color: Colors.white),
                                     ),
                                     const Spacer(),
-                                    Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        const Icon(
-                                          Icons.mode_comment_outlined,
-                                          semanticLabel: 'Hello?',
-                                          color: Colors.white,
-                                          size: 25,
-                                        ),
-                                        Container(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 4),
-                                          child: Text(
-                                            article.amountOfComments.toString(),
-                                            style: const TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 10),
-                                          ),
-                                        ),
-                                      ],
+                                    CommentsIcon(
+                                      amountOfComments:
+                                          article.amountOfComments,
                                     ),
                                     const Spacer(flex: 30),
                                   ],
@@ -106,71 +93,21 @@ class ArticleScreen extends StatelessWidget {
                                     const EdgeInsets.only(left: 16.0, top: 8.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(
-                                          left: 8, right: 8),
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        border: Border.all(color: Colors.white),
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(20)),
-                                      ),
-                                      child: Row(
-                                        children: const [
-                                          Icon(
-                                            Icons.bookmark_border_outlined,
-                                            color: Colors.white,
-                                            size: 15,
-                                          ),
-                                          Text(
-                                            'Opslaan',
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                        ],
-                                      ),
+                                  children: const [
+                                    BookmarkIcon(),
+                                    Spacer(),
+                                    SocialMediaIcon(
+                                      socialMediaType: SocialMediaType.facebook,
                                     ),
-                                    const Spacer(),
-                                    Container(
-                                      padding: const EdgeInsets.all(2),
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey.shade600,
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(20))),
-                                      child: const Icon(
-                                        Icons.facebook_rounded,
-                                        color: Colors.blueAccent,
-                                        size: 20,
-                                      ),
+                                    Spacer(),
+                                    SocialMediaIcon(
+                                      socialMediaType: SocialMediaType.twitter,
                                     ),
-                                    const Spacer(),
-                                    Container(
-                                      padding: const EdgeInsets.all(2),
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey.shade600,
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(20))),
-                                      child: const Icon(
-                                        Icons.ac_unit,
-                                        color: Colors.blue,
-                                        size: 20,
-                                      ),
+                                    Spacer(),
+                                    SocialMediaIcon(
+                                      socialMediaType: SocialMediaType.whatsapp,
                                     ),
-                                    const Spacer(),
-                                    Container(
-                                      padding: const EdgeInsets.all(2),
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey.shade600,
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(20))),
-                                      child: const Icon(
-                                        Icons.whatsapp_rounded,
-                                        color: Colors.green,
-                                        size: 20,
-                                      ),
-                                    ),
-                                    const Spacer(flex: 30),
+                                    Spacer(flex: 30),
                                   ],
                                 ),
                               )
@@ -179,25 +116,8 @@ class ArticleScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      padding: const EdgeInsets.only(left: 16, top: 16),
-                      child: Row(
-                        children: [
-                          const Text(
-                            "Door ",
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text(article.author.name, style: const TextStyle(decoration: TextDecoration.underline),),
-                          Container(
-                            margin: const EdgeInsets.only(left: 4),
-                            child: CircleAvatar(
-                              radius: 20.0,
-                              backgroundImage:
-                                  NetworkImage(article.author.image),
-                            ),
-                          )
-                        ],
-                      ),
+                    AuthorRow(
+                      author: article.author,
                     ),
                     const Text('Heel veel text hier straks'),
                   ],
